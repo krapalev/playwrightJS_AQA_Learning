@@ -24,25 +24,12 @@ module.exports = defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    launchOptions:{
-      args: [
-        "--start-maximized",
-        "--disable-web-security",
-        "--disable-features=IsolateOrigins,site-per-process",
-        "--disable-http2",
-        "--disable-extensions",
-        "--disable-gpu",
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--ignore-certificate-errors"
-      ],
-    },
+
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     headless: true,
-    ignoreHTTPSErrors: true,
+    //ignoreHTTPSErrors: true,
 
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
@@ -56,7 +43,15 @@ module.exports = defineConfig({
       name: 'chromium',
 
       use: {
-        ...devices['Desktop Chrome']
+        ...devices['Desktop Chrome'],
+        launchOptions:{
+          args: [
+            '--disable-web-security',
+            '--disable-http2',
+            '--disable-extensions',
+            '--ignore-certificate-errors'
+          ],
+        }
         }
 
     }/*
