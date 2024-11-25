@@ -10,5 +10,10 @@
   "devDependencies": {
     "@playwright/test": "^1.48.2",
     "@types/node": "^22.8.6"
+  },
+  "dependencies": {
+    "random-day": "^1.0.1",
+    "random-month": "^1.0.1",
+    "random-year": "^1.0.2"
   }
 }
