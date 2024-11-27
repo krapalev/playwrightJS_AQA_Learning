@@ -2,10 +2,22 @@ import {test,expect} from "@playwright/test";
 import randomYear from "random-year";
 import randomMonth from "random-month";
 import randomDay from "random-day";
+import data from "../tests/test-data/month_indexes.json"
 
 
 const homePageURL = 'https://testautomationpractice.blogspot.com/';
+/*
+//page-object class
 
+async selectMonthIndex(data:{
+    monthname: string;
+    monthindex: string
+}[])
+for (data of testData) {
+    await this.selectName(data.name);
+    await this.selectIndex(data.index);
+}
+*/
 test ('DatePicker', async({page}) => {
 
     await page.goto(homePageURL);
@@ -27,34 +39,8 @@ test ('DatePicker', async({page}) => {
 
     const currentYear = Number(await page.locator('.ui-datepicker-year').textContent());
     let currentMonth = await page.locator('.ui-datepicker-month').textContent();
-    let cmn;
 
-    switch (currentMonth) {
-        case currentMonth = 'January': cmn = 1;
-            break;
-        case currentMonth = 'February': cmn = 2;
-            break;
-        case currentMonth = 'March': cmn = 3;
-            break;
-        case currentMonth = 'April': cmn = 4;
-            break;
-        case currentMonth = 'May': cmn = 5;
-            break;
-        case currentMonth = 'June': cmn = 6;
-            break;
-        case currentMonth = 'July': cmn = 7;
-            break;
-        case currentMonth = 'August': cmn = 8;
-            break;
-        case currentMonth = 'September': cmn = 9;
-            break;
-        case currentMonth = 'October': cmn = 10;
-            break;
-        case currentMonth = 'November': cmn = 11;
-            break;
-        case currentMonth = 'December': cmn = 12;
-            break;
-    }
+    let cmn = data[currentMonth.toLowerCase()];
     console.log('This is cmn: ' + cmn);
 
     let deltaYear = year-currentYear;
