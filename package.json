@@ -12,6 +12,10 @@
     "@types/node": "^22.8.6"
   },
   "dependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "axe-core": "^4.10.2",
+    "axe-playwright": "^2.0.3",
+    "puppeteer": "^23.9.0",
     "random-day": "^1.0.1",
     "random-month": "^1.0.1",
     "random-year": "^1.0.2"
